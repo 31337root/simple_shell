@@ -13,7 +13,7 @@
 
 int main(void)
 {
-	char *line = NULL, **arguments;
+	char *line = NULL, **arguments, *_exit = "exit";
 	size_t len = 0;
 	ssize_t readcount;
 	int i;
@@ -21,7 +21,7 @@ int main(void)
 	printf("$ ");
 	while ((readcount = getline(&line, &len, stdin)) != EOF)
 	{
-		if (line)
+		if (line && *line != *_exit)
 		{
 			arguments = space_organizer(line, " \t\r\n\f\v", len);
 			i = 0;
@@ -32,6 +32,11 @@ int main(void)
 				i++;
 			}
 			printf("$ ");
+		}
+		else if (*line == *_exit)
+		{
+			free(line);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
