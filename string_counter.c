@@ -3,18 +3,12 @@
 #include <stdlib.h>
 #include "headers.h"
 
-char** space_organizer(char *string)
+char** space_organizer(char *string, const char *delim, int len)
 {
-	char *temp, *token, **arguments;
-	const char *delim = " \t\r\n\f\v";
+	char *temp = malloc(sizeof(char) * len), *token, **arguments;
 	int i = 0;
 
-	for (; string[i]; i++)
-		;
-	temp = malloc(sizeof(char) * i);
-	for (i = 0; string[i]; i++)
-		temp[i] = string[i];
-	i = 0;
+	temp = _strncpy(temp, string, len);
 	token = strtok(temp, delim);
 
 	while (token != NULL)

@@ -23,7 +23,7 @@ int main(void)
 	{
 		if (line)
 		{
-			arguments = space_organizer(line);
+			arguments = space_organizer(line, " \t\r\n\f\v", len);
 			i = 0;
 
 			while (arguments[i] != NULL)

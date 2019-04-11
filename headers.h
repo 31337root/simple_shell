@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char** space_organizer(char *string);
+char** space_organizer(char *string, const char *delim, int len);
+char *_strncpy(char *dest, char *src, int n);
 
 #endif /* _HEADERS_H_ */
