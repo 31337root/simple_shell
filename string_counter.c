@@ -17,6 +17,7 @@ char** space_organizer(char *string, const char *delim, int len)
 		i++;
 	}
 
+	free(temp);
 	arguments = malloc(sizeof(char*) * (i + 1));
 	i = 0;
 	arguments[i] = strtok(string, delim);
