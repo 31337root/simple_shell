@@ -1,0 +1,63 @@
+.\" Manpage for our shell
+.\" Contact juandiegoalejandro@hotmail.com - omarma@outlook.es in to correct errors or typos.
+.TH shell "15 APR 2019" "0.1" "Our Shell man page"
+.SH NAME
+     command interpreter (shell)
+.SH SYNOPSIS
+ COMMAND [ARGUMENT]
+.SH DESCRIPTION
+The shell is a command that reads lines from either a file or the terminal,
+interprets them, and generally executes other commands.It incorporates many feat
+ures to aid interactive use and has the advantage that the interpretative language 
+is common to both interactive and non-interactive use (shell scripts).  That is, 
+commands can be typed directly to the running shell or can be put into a file and
+the file can be executed directly by the shell.
+The shell interprets the words it reads according to a language, the specificati
+on of which is outside the scope of this man page
+.SH Path Search
+     When locating a command, the shell first looks to see if it has a shell
+     function by that name.  Then it looks for a builtin command by that name.
+     If a builtin command is not found, one of two things happen:
+
+     1.   Command names containing a slash are simply executed without perform‐
+          ing any searches.
+
+     2.   The shell searches each entry in PATH in turn for the command.  The
+          value of the PATH variable should be a series of entries separated by
+          colons.  Each entry consists of a directory name.  The current direc‐
+          tory may be indicated implicitly by an empty directory name, or
+          explicitly by a single period.
+.SH Command Exit Status
+     Each command has an exit status that can influence the behaviour of other
+     shell commands.  The paradigm is that a command exits with zero for normal
+     or success, and non-zero for failure, error, or a false indication.  The
+     man page for each command should indicate the various exit codes and what
+     they mean.  Additionally, the builtin commands return exit codes, as does
+     an executed shell function.
+
+     If a command consists entirely of variable assignments then the exit status
+     of the command is that of the last command substitution if any, otherwise
+     0.
+
+.SH echo [-n] args...
+    Print the arguments on the standard output, separated by spaces.
+    Unless the -n option is present, a newline is output following the
+    arguments.
+
+.SH exit [exitstatus]
+    Terminate the shell process.  If exitstatus is given it is used as
+    the exit status of the shell; otherwise the exit status of the pre‐
+    ceding command is used.
+
+.SH  pwd [-LP]
+    builtin command remembers what the current directory is rather than
+    recomputing it each time.  This makes it faster.  However, if the
+    current directory is renamed, the builtin version of pwd will con‐
+    tinue to print the old name for the directory.  The -P option causes
+    the physical value of the current working directory to be shown,
+    that is, all symbolic links are resolved to their respective values.
+    The -L option turns off the effect of any preceding -P options.
+
+
+.SH AUTHOR
+Written by Juan Valencia and Omar Martínez Bermúdez
