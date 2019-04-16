@@ -6,9 +6,8 @@
  * Description: "/bin" "ls" = "/bin/ls" - "src/dest" <-- e. Expected output.
  * @dest: Variable on representetion of a program.
  * @src: Variable on representatio of the program path.
- * Return - Success (s_concat), string concatenated.
- * Return - Failure (NULL), imposible to allocate mamory heap.
-*/
+ * Return: Success (s_concat), string concatenated.
+ **/
 
 char *_strcat(char *dest, char *src)
 {

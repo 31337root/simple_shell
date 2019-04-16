@@ -6,11 +6,10 @@
  * @arguments: Pointers array with the values entered by
  * the user trough getline().
  * @size: Size of pointers array.
- * @env: Have the environment from where is executed the program.
- * env will be pased as an argument of path_finder().
- * Return (0) Success, take a expected decition.
- * Return (-1) Failure, Some errors with the entry arguments.
-*/
+ * @_env: Have the environment from where is executed the program.
+ * - env will be pased as an argument of path_finder().
+ * Return: (0) Success, take a expected decition.
+  **/
 
 int decision_taker(char **arguments, int size, char **_env)
 {

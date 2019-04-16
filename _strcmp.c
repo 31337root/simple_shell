@@ -5,7 +5,6 @@
  * @s1: first string
  * @s2: second string
  * Return: Success (0) if both strings contains the same characters.
- * Return: Failure (s1[i] - s2[i]), the ASSCI difference between both strings.
 */
 
 int _strcmp(char *s1, char *s2)
