@@ -11,8 +11,7 @@
  * @len: Lenght of the entire (string).
  * @strcount: Variable where store the amount of tokens found
  * (variable needed by malloc).
- * Return - Success (Array of pointers - aop), where all tokens will be saved.
- * Return - Failure, imposible to find heap memory.
+ * Return: Success (Array of pointers - aop), where all tokens will be saved.
  */
 
 char **space_organizer(char *string, const char *delim, int len, int *strcount)
