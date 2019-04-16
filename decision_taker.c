@@ -18,7 +18,7 @@ int decision_taker(char **arguments, int size, char **_env)
 
 	if (arguments && _env && size != 0)
 	{
-		if (**arguments == '/')
+		if ((**arguments == '/') | (**arguments == '.'))
 		{
 			i = executor(arguments, arguments[0], size);
 
