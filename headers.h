@@ -13,8 +13,7 @@
 
 /*   Our functions. */
 
-char **space_organizer(char *string, const char *delim, int len, int *strcount)
-	;
+char **space_organizer(char *, const char *, int len, int *strcount);
 int one_finxer(char **arguments, char **path, int size0, int size1);
 int decision_taker(char **arguments, int size, char **_env);
 int executor(char **aop, const char *path, int size);
