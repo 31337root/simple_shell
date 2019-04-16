@@ -12,6 +12,7 @@
 int executor(char **aop, const char *path, int size)
 {
 	pid_t childID = fork(), r_value = 0;
+	int wstatus = 0;
 
 	if (aop && path && size != 0)
 	{
@@ -28,18 +29,18 @@ int executor(char **aop, const char *path, int size)
 
 		else
 		{
-			wait(NULL);
+			waitpid(childID, &wstatus, 0);
 		}
 
 		if (r_value < 0)
 		{
 			printf("%s: %d: %s: not found\n", path, errno, aop[1]);
 			/* execve() only returns on error */
-			return (-1);
+			return (EXIT_FAILURE);
 		}
 		else
 		{
-			return (0);
+			return (WEXITSTATUS(wstatus));
 		}
 	}
 	perror("Executor can't find aop, path or size.");
