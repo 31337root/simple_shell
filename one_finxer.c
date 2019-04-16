@@ -20,7 +20,7 @@ int one_finxer(char **arguments, char **path, int size0, int size1)
 	UNUSED(result);
 	getcwd(_cwd, sizeof(_cwd));
 
-	while (path && path[i] && arguments && size0 != 0 && size1 != 0)
+	while (path && path[1] && path[i] && arguments && size0 != 0 && size1 != 0)
 	{
 		if ((chdir(path[i])) < 0)
 			return (-1);
