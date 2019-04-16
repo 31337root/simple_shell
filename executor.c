@@ -6,7 +6,6 @@
  * of the executed program.
  * @path: Contain the path where the program will be executed.
  * @size: Size of pointers array. (Array of pointers - **aop)
- * Return: Failure (-1), unable to execute the requested program.
  * Return: Success (0), Program correctly executed and memory freed.
 */
 
