@@ -30,7 +30,6 @@ int decision_taker(char **arguments, int size, char **_env)
 			if ((_strcmp(arguments[0], comdenv)) == 0)
 			{
 				printenv(_env);
-				a_liberator(arguments, size);
 				return (0);
 			}
 			else

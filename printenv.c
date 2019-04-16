@@ -13,7 +13,11 @@ void printenv(char **envp)
 	if (envp)
 	{
 		while (envp[i])
-			printf("%s\n", envp[i++]);
+		{
+			write(STDOUT_FILENO, envp[i], _strlen(envp[i]));
+			write(STDOUT_FILENO, "\n", 1);
+			i++;
+		}
 		return;
 	}
 	perror("Unable to find envp.");

@@ -41,7 +41,7 @@ int main(int argc, char **argv, char **envp)
 		else if ((_strcmp(line, _exit)) == 0)
 		{
 			free(line);
-			exit(EXIT_SUCCESS);
+			exit(2);
 		}
 		else
 		{
