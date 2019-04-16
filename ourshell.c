@@ -33,6 +33,7 @@ int main(int argc, char **argv, char **envp)
 			if (aop[0] != NULL)
 			{
 				decision_taker(aop, strcount, envp);
+				a_liberator(aop, strcount);
 			}
 			else
 				free(aop);

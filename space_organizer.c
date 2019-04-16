@@ -17,7 +17,7 @@
 char **space_organizer(char *string, const char *delim, int len, int *strcount)
 {
 	char *temp, *token, **aop;
-	int i = 0, stlen[3000] = { 0, 0, 0, 0, 0, 0};
+	int i = 0, stlen[120];
 
 	temp  = malloc(sizeof(char) * (len + 1));
 	if (temp)
@@ -39,7 +39,7 @@ char **space_organizer(char *string, const char *delim, int len, int *strcount)
 	aop = malloc(sizeof(*aop) * (*strcount + 1));
 	for (i = 0; i < (*strcount); i++)
 		aop[i] = malloc(sizeof(char) * (stlen[i] + 1));
-	aop[(*strcount + 1)] = NULL;
+	aop[(*strcount)] = NULL;
 	if (aop)
 	{
 		i = 0;
@@ -54,6 +54,5 @@ char **space_organizer(char *string, const char *delim, int len, int *strcount)
 		}
 		return (aop);
 	}
-	perror("Buffer1 not found. (Malloc)");
 	return (NULL);
 }

@@ -37,6 +37,7 @@ void path_finder(char **aop, int size, char **_env)
 			len = _strlen(temp);
 			path = space_organizer(temp, "PATH=:\n", len, &strcount);
 			result = one_finxer(aop, path, size, strcount);
+			a_liberator(path, strcount);
 			return;
 		}
 	}

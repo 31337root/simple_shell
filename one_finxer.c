@@ -51,6 +51,6 @@ int one_finxer(char **arguments, char **path, int size0, int size1)
 		return (-1);
 
 	free(pathfile);
-	printf("\n%s : Not found\n", arguments[0]);
+	printf("ourshell: %d: %s: not found\n", errno, arguments[0]);
 	return (-1);
 }
