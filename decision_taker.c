@@ -7,11 +7,12 @@
  * the user trough getline().
  * @size: Size of pointers array.
  * @_env: Have the environment from where is executed the program.
- * - env will be pased as an argument of path_finder().
+ * - env will be pased as an argument of path_finder()
+ * @wstatus: Return status of the las program executed.
  * Return: (0) Success, take a expected decition.
   **/
 
-int decision_taker(char **arguments, int size, char **_env)
+int decision_taker(char **arguments, int size, char **_env, int *wstatus)
 {
 	char *comdenv = "env";
 	int i = 0;
@@ -21,9 +22,8 @@ int decision_taker(char **arguments, int size, char **_env)
 		if ((**arguments == '/') | (**arguments == '.'))
 		{
 			i = executor(arguments, arguments[0], size);
-
-			if (i == 0)
-				return (0);
+			*wstatus = i;
+			return (*wstatus);
 		}
 		else
 		{
@@ -34,7 +34,7 @@ int decision_taker(char **arguments, int size, char **_env)
 			}
 			else
 			{
-				path_finder(arguments, size, _env);
+				path_finder(arguments, size, _env, wstatus);
 				return (0);
 			}
 		}

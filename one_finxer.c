@@ -8,10 +8,11 @@
  * @path: Path where the program to execute is.
  * @size0: Size of array (arguments).
  * @size1: Size of array (path).
+ * @wstat: Return status of the las program executed.
  * Return: (0) Succes, the path was found and the program executed.
  */
 
-int one_finxer(char **arguments, char **path, int size0, int size1)
+int one_finxer(char **arguments, char **path, int size0, int size1, int *wstat)
 {
 	char *pathfile = NULL, _cwd[1024];
 	int result = 0, i = 0;
@@ -33,15 +34,17 @@ int one_finxer(char **arguments, char **path, int size0, int size1)
 				if ((chdir(_cwd)) < 0)
 					return (-1);
 				result = executor(arguments, pathfile, size0);
+				*wstat = result;
 
 				if (result < 0)
 				{
-					return (-1);
+					free(pathfile);
+					return (*wstat);
 				}
 				else
 				{
 					free(pathfile);
-					return (0);
+					return (*wstat);
 				}
 			}
 		}
@@ -49,8 +52,6 @@ int one_finxer(char **arguments, char **path, int size0, int size1)
 	}
 	if ((chdir(_cwd)) < 0)
 		return (-1);
-
 	free(pathfile);
 	printf("ourshell: %d: %s: not found\n", errno, arguments[0]);
-	return (-1);
-}
+	return (-1); }

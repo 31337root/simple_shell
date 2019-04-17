@@ -14,12 +14,12 @@
 /*   Our functions. */
 
 char **space_organizer(char *, const char *, int len, int *strcount);
-int one_finxer(char **arguments, char **path, int size0, int size1);
-int decision_taker(char **arguments, int size, char **_env);
+int one_finxer(char **arguments, char **path, int size0, int size1, int *);
+int decision_taker(char **arguments, int size, char **_env, int *wstatus);
 int executor(char **aop, const char *path, int size);
 void printenv(char **envp);
 void a_liberator(char **aop, int size);
-void path_finder(char **aop, int size, char **_env);
+void path_finder(char **aop, int size, char **_env, int *wstatus);
 
 /*   Generic functions. */
 

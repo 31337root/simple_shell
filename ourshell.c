@@ -19,8 +19,9 @@ int main(int argc, char **argv, char **envp)
 	char *line = NULL, **aop, *_exit = "exit";
 	size_t len = 0;
 	ssize_t readcount;
-	int strcount = 0;
+	int strcount = 0, wstatus = 0;
 
+	signal(SIGINT, SIG_IGN);
 	UNUSED(argc);
 	UNUSED(argv);
 
@@ -32,7 +33,7 @@ int main(int argc, char **argv, char **envp)
 			aop = space_organizer(line, " \t\r\n\f\v", readcount, &strcount);
 			if (aop[0] != NULL)
 			{
-				decision_taker(aop, strcount, envp);
+				decision_taker(aop, strcount, envp, &wstatus);
 				a_liberator(aop, strcount);
 			}
 			else
@@ -41,7 +42,7 @@ int main(int argc, char **argv, char **envp)
 		else if ((_strcmp(line, _exit)) == 0)
 		{
 			free(line);
-			exit(2);
+			exit(wstatus);
 		}
 		else
 		{

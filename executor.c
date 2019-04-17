@@ -36,7 +36,7 @@ int executor(char **aop, const char *path, int size)
 		{
 			printf("%s: %d: %s: not found\n", path, errno, aop[1]);
 			/* execve() only returns on error */
-			return (EXIT_FAILURE);
+			return (WEXITSTATUS(wstatus));
 		}
 		else
 		{

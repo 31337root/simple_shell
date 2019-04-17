@@ -8,10 +8,11 @@
  * @aop: (Array of poiters), arguments of the program tu execute.
  * @size: Size of the (Array of pointers - aop).
  * @_env: Current environment where the program is executed.
+ * @wstatus: Return status of the las program executed.
  * Return - void.
  */
 
-void path_finder(char **aop, int size, char **_env)
+void path_finder(char **aop, int size, char **_env, int *wstatus)
 {
 	char **path = NULL, temp[3000];
 	char match[6] = "PATH=";
@@ -36,7 +37,8 @@ void path_finder(char **aop, int size, char **_env)
 		{
 			len = _strlen(temp);
 			path = space_organizer(temp, "PATH=:\n", len, &strcount);
-			result = one_finxer(aop, path, size, strcount);
+			result = one_finxer(aop, path, size, strcount, wstatus);
+			*wstatus = result;
 			a_liberator(path, strcount);
 			return;
 		}
