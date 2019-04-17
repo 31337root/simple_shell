@@ -1,3 +1,5 @@
+!["explaning files"](https://i.0imgur.com/S0uSt1X.jpg)
+!["Shell flow chart"](https://i.0imgur.com/E2nkQik.jpg)
 Simple Shell - simple UNIX command interpreter
 
 Learning Objectives
@@ -24,7 +26,7 @@ What is EOF / end-of-file?
 Files in this repository
 
 a_liberator.c     headers.h      printenv.c         _strcat.c
-a.out             one_finxer.c   #README.md#        _strcmp.c
+a.out             one_finxer.c                      _strcmp.c
 decision_taker.c  ourshell.c     README.md          _strlen.c
 executor.c        path_finder.c  space_organizer.c  _strncpy.c
 
